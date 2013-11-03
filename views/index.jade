@@ -8,7 +8,7 @@ block content
         div.col-xs-3 APIs
             ul
                 each val in versions
-                    li: a(href='#')='/api/' + val.name
+                    li: a(href='/api/#{val.name}')='/api/' + val.name
 
         div.col-xs-3    I am B
         div.col-xs-3    I am C

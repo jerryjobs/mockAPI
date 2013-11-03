@@ -38,6 +38,7 @@ exports.setRouts = function (app) {
     app.get('/users', require('./routes/user').list);
     app.get('/version/add', route.add);
     app.post('/version/add', route.add);
+    app.get('/api/:version', route.oneVersion);
 }
 
 exports.setDbCollection = function (app) {

@@ -9,7 +9,6 @@ exports.index = function (req, res) {
             console.error(err);
             res.send({error: "server error."});
         } else {
-            console.log(doc);
             res.render('index', { title: 'Mock API', versions: doc});
         }
     });
@@ -45,4 +44,26 @@ exports.add = function (req, res) {
             res.send({title: 'Add API version.', inputVersion: versionName});
             break;
     }
+}
+
+
+exports.oneVersion = function (req, res) {
+    console.info("request version is :" + req.params.version);
+    var data = {name: req.params.version};
+    models.Version.count(data, function (err, count) {
+        if (err) {
+            res.send({error: "server error"});
+        } else if (count > 0) {
+            models.Version.findOne(data, function (err, doc) {
+                if (err) {
+                    res.send("500, server error.");
+                } else {
+                    res.json(doc);
+                }
+            });
+        } else {
+            res.send("ok");
+        }
+    });
+
 }
