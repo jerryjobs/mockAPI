@@ -33,6 +33,9 @@ exports.setEnv = function (app, express) {
 }
 
 exports.setRouts = function (app) {
-    app.get('/', require('./routes').index);
+    var route = require('./routes');
+    app.get('/', route.index);
     app.get('/users', require('./routes/user').list);
+    app.get('/version/add', route.add);
+    app.post('/version/add', route.add);
 }

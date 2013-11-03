@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1.text-info Welcome to
+    i  #{title}
+  div.container
+    div.row.show-grid
+        div.col-xs-3 APIs
+            ul
+                li  /api/v1
+                li  /api/v2
+        div.col-xs-3    I am B
+        div.col-xs-3    I am C
+

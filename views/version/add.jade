@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+        div.bs-example
+            form.form-horizontal(role="form", method="POST")
+                div.form-group
+                    label(for="#{inputVersion}") API version
+                    input.form-control(placeholder="please enter your API version name.",id="#{inputVersion}",name="#{inputVersion}")
+                div.form-group
+                    button.btn.btn-primary submit
+
+            blockquote
+                small Tips
+                p 添加一个api版本 是一个路由版本的集合。例如我添加一个v1那么它的访问路径就是  /api/v1/.

@@ -1,12 +1,15 @@
 {
-  "name": "MockAPI",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "3.4.4",
-    "jade": "*"
-  }
+    "name": "MockAPI",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "3.4.4",
+        "jade": "*",
+        "log4js": "0.6.9",
+        "mongoose": "3.8.0",
+        "express-mongoose": "0.1.0"
+    }
 }
