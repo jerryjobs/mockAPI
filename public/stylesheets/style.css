@@ -5,7 +5,7 @@ a {
 .container{
     width: 900px;
     height: auto;
-    background: #b9def0;
+    background-color: #fafafa;
     border: 1px #c0c0c0 solid;
     border-radius: 5px;
     padding: 10px;

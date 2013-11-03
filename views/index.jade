@@ -7,8 +7,9 @@ block content
     div.row.show-grid
         div.col-xs-3 APIs
             ul
-                li  /api/v1
-                li  /api/v2
+                each val in versions
+                    li: a(href='#')='/api/' + val.name
+
         div.col-xs-3    I am B
         div.col-xs-3    I am C
 

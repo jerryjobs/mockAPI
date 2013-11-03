@@ -39,3 +39,9 @@ exports.setRouts = function (app) {
     app.get('/version/add', route.add);
     app.post('/version/add', route.add);
 }
+
+exports.setDbCollection = function (app) {
+    var mongoose = require('mongoose');
+    mongoose.connect('mongodb://localhost/test');
+    return mongoose;
+}

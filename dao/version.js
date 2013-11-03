@@ -8,3 +8,15 @@
  *
  */
 
+var mongoose = require('mongoose');
+require('express-mongoose');
+
+var Schema = mongoose.Schema;
+
+var VerionSchema = new Schema({
+    name: {type: String, default: ''},
+    description: {type: String, default: ''},
+    routes: {type: String, default: ''}
+});
+
+exports.Version = mongoose.model('Version', VerionSchema);

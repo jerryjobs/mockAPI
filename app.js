@@ -2,6 +2,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var config = require('./config.js');
+var mongoose = config.setDbCollection(app);
 
 var app = express();
 
