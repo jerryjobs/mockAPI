@@ -34,7 +34,8 @@ exports.add = function (req, res) {
                         res.render('version/add', {title: 'Add API version.', inputVersion: versionName, error: "api name (" + data.name + ") is exits"});
                     } else {
                         new models.Version(data).save();
-                        res.render('version/add', {title: 'Add API version.', inputVersion: versionName, success: "add api version (" + data.name + ") success ."});
+                        //res.render('version/add', {title: 'Add API version.', inputVersion: versionName, success: "add api version (" + data.name + ") success ."});
+                        res.redirect('/');
                     }
                 }
             });
