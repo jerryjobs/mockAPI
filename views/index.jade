@@ -6,11 +6,37 @@ block content
   div.container
     div.row.show-grid
         div.col-xs-3 APIs
-            ul
-                li: a.btn.btn-default(href='/version/add') create a new API version
+            ul.list
+                li: a.btn.btn-success(href='/version/add') create a new API version
                 each val in versions
-                    li: a.btn(href='/api/#{val.name}')='/api/' + val.name
+                    li: a.btn.btn-info(href='/api/#{val.name}',title='打开API版本#{val.name}')='/api/' + val.name
+                        a.btn.btn-danger(href="#",style='margin-left:15px',onclick='return deleteVersion(this, "#{val.name}")') delete
 
         div.col-xs-3    I am B
         div.col-xs-3    I am C
+
+  script
+    function deleteVersion(obj, version){
+        if( confirm('您确定要删除[' + version + ']吗?')) {
+            //alert('delete done.');
+            $.ajax({
+                  url: "/version/" + version,
+                  type: 'DELETE',
+                  success:function(data){
+                    if (data.success == 'true') {
+                        $(obj).parent().slideUp(function(){
+                            $(obj).parent().remove();
+                        });
+                    } else {
+                        console.log(data.error);
+                    }
+                  },
+                  error:function(){
+                    alert('delete error.');
+                  }
+            });
+            return true;
+        }
+        return false;
+    }
 

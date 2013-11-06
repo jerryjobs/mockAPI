@@ -35,10 +35,14 @@ exports.setEnv = function (app, express) {
 exports.setRouts = function (app) {
     var route = require('./routes');
     app.get('/', route.index);
-    app.get('/users', require('./routes/user').list);
     app.get('/version/add', route.add);
     app.post('/version/add', route.add);
+    app.delete('/version/:version', route.deleteVersion);
+
+
     app.get('/api/:version', route.oneVersion);
+
+    app.get('/users', require('./routes/user').list);
 }
 
 exports.setDbCollection = function (app) {

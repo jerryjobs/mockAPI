@@ -65,5 +65,24 @@ exports.oneVersion = function (req, res) {
             res.send("ok");
         }
     });
+}
 
+exports.deleteVersion = function (req, res) {
+    console.info('delete version');
+    var data = {name: req.params.version};
+    console.log(data);
+    var json = {
+        success: 'true',
+        error: ''
+    }
+
+    models.Version.findOne(data, function (err, doc) {
+        if (err) {
+            json.success = 'false';
+            json.error = '未知错误';
+        } else {
+            doc.remove();
+        }
+        res.json(json);
+    });
 }
